@@ -1,0 +1,18 @@
+version: "3.4"
+
+services:
+  mariadb:
+    container_name: mariadb
+    env_file: 
+      - ${ENVIROMENT_FILE:-prod.env}
+    image: mariadb
+    restart: always
+    volumes:
+      - ${PWD}/mariadb:/var/lib/mysql
+
+  adminer:
+    container_name: adminer
+    image: adminer
+    restart: always
+    ports:
+      - 8989:8080

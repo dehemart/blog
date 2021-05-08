@@ -13,6 +13,15 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 from django.contrib.messages import constants
 import os
+from environs import Env
+
+env_base = Env()
+env_base.read_env()
+
+enviroment = env_base('ENVIROMENT_FILE', 'local.env')
+
+env_env = Env()
+env_env.read_env(enviroment, recurse=False)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -84,11 +93,11 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'blog_django',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-        'USER': 'root',
-        'PASSWORD': 'password',
+        'NAME':  env_env("MYSQL_DATABASE", "mydb"),
+        'HOST': env_env("MYSQL_HOST", "127.0.0.1"),
+        'PORT': env_env("MYSQL_PORT", "3306"),
+        'USER': env_env("MYSQL_USER", "root"),
+        'PASSWORD': env_env("MYSQL_PASSWORD", "password"),
     }
 }
 
