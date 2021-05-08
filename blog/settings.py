@@ -18,7 +18,7 @@ from environs import Env
 env_base = Env()
 env_base.read_env()
 
-enviroment = env_base('ENVIROMENT_FILE', 'local.env')
+enviroment = env_base('ENVIROMENT_FILE', 'prod.env')
 
 env_env = Env()
 env_env.read_env(enviroment, recurse=False)
