@@ -1,0 +1,14 @@
+autopep8 >= 1.*
+django-appconf >= 1.*
+django-axes >= 5.*
+django-crispy-forms >= 1.*
+django-summernote >= 0.*
+flake8 >= 3.*
+gunicorn >= 20.*
+mypy >= 0.*
+mysqlclient >= 2.*
+pillow >= 7.*
+pip-chill >= 1.*
+pylint >= 2.*
+requests >= 2.*
+environs >= 9.*
