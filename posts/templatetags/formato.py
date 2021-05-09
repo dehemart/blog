@@ -3,7 +3,7 @@ from django import template
 register = template.Library()
 
 
-@register.filter(name='unidade_compentario')
+@register.filter(name='unidade_comentario')
 def unidade_compentario(numero_comentarios):
     try:
         numero_comentarios = int(numero_comentarios)
