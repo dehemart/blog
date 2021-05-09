@@ -10,7 +10,7 @@ services:
     volumes:
       - ${PWD}/mariadb:/var/lib/mysql
     ports:
-      - 3307:3306
+      - 3306:3306
 
   adminer:
     container_name: adminer

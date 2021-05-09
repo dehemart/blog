@@ -36,7 +36,7 @@ SECRET_KEY = '=j86@$a*53xm5kxuwi&5)v5tgs(o+wyb3+b=njhclr2js_k^!q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env_env.bool('DEBUG', 'True')
 
-ALLOWED_HOSTS = [env_env.str('ALLOWED_HOSTS', '')]
+ALLOWED_HOSTS = [env_env.str('ALLOWED_HOSTS', '127.0.0.1', 'localhost')]
 
 
 # Application definition
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'categorias',
     'comentarios',
     'django_summernote',
+    'posts.templatetags.formato',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -95,7 +96,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME':  env_env("MYSQL_DATABASE", "blog_django"),
         'HOST': env_env("MYSQL_HOST", "127.0.0.1"),
-        'PORT': env_env("MYSQL_PORT", "3307"),
+        'PORT': env_env("MYSQL_PORT", "3306"),
         'USER': env_env("MYSQL_USER", "user_blog_django"),
         'PASSWORD': env_env("MYSQL_PASSWORD", "password"),
     }
