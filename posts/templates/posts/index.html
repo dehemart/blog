@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load humanize %}
+{% load formato %}
 {% block conteudo %}
   
     <!-- CONTENT -->
@@ -29,7 +29,7 @@
                     <small class="text-muted">
                             {{ post.data_post|naturalday|title }}
                         |
-                            {{ post.total_comentarios}} comentario(s)
+                            {{ post.total_comentarios|unidade_compentario}}
                         | 
                             {{ post.categoria_post}}
                     </small>
