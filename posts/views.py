@@ -7,6 +7,7 @@ from comentarios.forms import FormComentario
 from comentarios.models import Comentario
 from django.contrib import messages
 from django.views import View
+from django.conf import settings
 
 
 class PostIndex(ListView):
@@ -102,3 +103,24 @@ class PostDetalhes(View):
         messages.success(request, 'Comentário enviado para aprovação.')
 
         return redirect('post_detalhes', pk=self.kwargs.get('pk'))
+
+    def save(self, *args, **kwargs):
+        super().save
+        self.image_resize(self.imagem_post.name, 800, 60)
+
+    @staticmethod
+    def image_resize(image_name, new_width, quality):
+        image_path = os.path.join(settings.MEDIA_ROOT, image_name)
+
+        img = Image.open(image_path)
+        width, height = img.size
+
+        new_height = round((new_width * height) / width)
+
+        if width <= new_width:
+            img.close()
+            return
+
+        new_img = img.resize((new_height, new_height), Image.ANTIALIAS)
+        new_img.save(image_path, optmize=True, quality=quality)
+        new_img.close()

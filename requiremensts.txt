@@ -12,3 +12,5 @@ pip-chill >= 1.*
 pylint >= 2.*
 requests >= 2.*
 environs >= 9.*
+django-axes >= 5.*
+django-crispy-forms >=1.*
