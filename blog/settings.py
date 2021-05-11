@@ -178,6 +178,7 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
+RECAPTCHA_SECRET_KEY = env_env("RECAPTCHA_SECRET_KEY", ""),
 
 try:
     from .local_settings import *

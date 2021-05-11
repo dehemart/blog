@@ -14,3 +14,4 @@ requests >= 2.*
 environs >= 9.*
 django-axes >= 5.*
 django-crispy-forms >=1.*
+requests >= 2.*
